@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ssm.domain.Orders;
+import ssm.domain.Traveller;
 import ssm.service.IOrdersService;
 
 import java.util.List;
@@ -30,8 +31,10 @@ public class OrdersController {
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "4") int size) throws Exception {
         ModelAndView mv = new ModelAndView();
-        System.out.println(page+"ssasd"+size);
+        //System.out.println(page+"ssasd"+size);
         List<Orders> ordersList = ordersService.findAll(page, size);
+        List<Traveller> travellers = ordersService.findById1("0E7231DC797C486290E8713CA3C6ECCC");
+        System.out.println("111"+travellers);
         //PageInfo就是一个分页Bean
         PageInfo pageInfo=new PageInfo(ordersList);
         mv.addObject("pageInfo",pageInfo);
@@ -40,9 +43,12 @@ public class OrdersController {
     }
 
     @RequestMapping("findById.do")
-    public ModelAndView findById(@RequestParam(name = "id", required = true) String ordersId){
+    public ModelAndView findById(@RequestParam(name = "id", required = true) String ordersId) throws Exception{
         ModelAndView mv = new ModelAndView();
         Orders orders = ordersService.findById(ordersId);
+        System.out.println(orders.getTravellers());
+        mv.addObject("orders",orders);
+        mv.setViewName("orders-show");
         return mv;
     }
 

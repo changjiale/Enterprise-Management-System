@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ssm.dao.IOrdersDao;
+import ssm.dao.ITravellerDao;
 import ssm.domain.Orders;
+import ssm.domain.Traveller;
 import ssm.service.IOrdersService;
 
 import java.util.List;
@@ -15,6 +17,8 @@ import java.util.List;
 public class OrdersServiceImpl implements IOrdersService {
     @Autowired
     private IOrdersDao ordersDao;
+    @Autowired
+    private ITravellerDao travellerDao;
 
     @Override
     public List<Orders> findAll(int page, int size) throws Exception{
@@ -24,7 +28,12 @@ public class OrdersServiceImpl implements IOrdersService {
     }
 
     @Override
-    public Orders findById(String ordersId) {
+    public Orders findById(String ordersId) throws Exception {
         return ordersDao.findById(ordersId);
+    }
+
+    @Override
+    public List<Traveller> findById1(String orderId) throws Exception {
+        return travellerDao.findByOrdersId(orderId);
     }
 }
