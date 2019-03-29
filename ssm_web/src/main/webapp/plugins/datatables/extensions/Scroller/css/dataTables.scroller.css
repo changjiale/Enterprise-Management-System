@@ -39,6 +39,6 @@ div.DTS div.dataTables_scrollBody {
 }
 
 div.DTS div.dataTables_scroll {
-	background: url('../images/loading-background.png') repeat 0 0;
+	background: url('${pageContext.request.contextPath}/images/loading-background.png') repeat 0 0;
 }
 

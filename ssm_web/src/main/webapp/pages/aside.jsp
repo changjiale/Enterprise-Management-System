@@ -61,7 +61,7 @@
 							<i class="fa fa-circle-o"></i> 产品管理
 					</a></li>
 					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
+						href="${pageContext.request.contextPath}/orders/findAll.do?page=1&size=4"> <i
 							class="fa fa-circle-o"></i> 订单管理
 					</a></li>
 

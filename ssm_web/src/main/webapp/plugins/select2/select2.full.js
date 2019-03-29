@@ -1309,8 +1309,8 @@ S2.define('select2/keys',[
 
 S2.define('select2/selection/base',[
   'jquery',
-  '../utils',
-  '../keys'
+  '${pageContext.request.contextPath}/utils',
+  '${pageContext.request.contextPath}/keys'
 ], function ($, Utils, KEYS) {
   function BaseSelection ($element, options) {
     this.$element = $element;
@@ -1469,8 +1469,8 @@ S2.define('select2/selection/base',[
 S2.define('select2/selection/single',[
   'jquery',
   './base',
-  '../utils',
-  '../keys'
+  '${pageContext.request.contextPath}/utils',
+  '${pageContext.request.contextPath}/keys'
 ], function ($, BaseSelection, Utils, KEYS) {
   function SingleSelection () {
     SingleSelection.__super__.constructor.apply(this, arguments);
@@ -1569,7 +1569,7 @@ S2.define('select2/selection/single',[
 S2.define('select2/selection/multiple',[
   'jquery',
   './base',
-  '../utils'
+  '${pageContext.request.contextPath}/utils'
 ], function ($, BaseSelection, Utils) {
   function MultipleSelection ($element, options) {
     MultipleSelection.__super__.constructor.apply(this, arguments);
@@ -1677,7 +1677,7 @@ S2.define('select2/selection/multiple',[
 });
 
 S2.define('select2/selection/placeholder',[
-  '../utils'
+  '${pageContext.request.contextPath}/utils'
 ], function (Utils) {
   function Placeholder (decorated, $element, options) {
     this.placeholder = this.normalizePlaceholder(options.get('placeholder'));
@@ -1728,7 +1728,7 @@ S2.define('select2/selection/placeholder',[
 
 S2.define('select2/selection/allowClear',[
   'jquery',
-  '../keys'
+  '${pageContext.request.contextPath}/keys'
 ], function ($, KEYS) {
   function AllowClear () { }
 
@@ -1826,8 +1826,8 @@ S2.define('select2/selection/allowClear',[
 
 S2.define('select2/selection/search',[
   'jquery',
-  '../utils',
-  '../keys'
+  '${pageContext.request.contextPath}/utils',
+  '${pageContext.request.contextPath}/keys'
 ], function ($, Utils, KEYS) {
   function Search (decorated, $element, options) {
     decorated.call(this, $element, options);
@@ -2979,7 +2979,7 @@ S2.define('select2/diacritics',[
 });
 
 S2.define('select2/data/base',[
-  '../utils'
+  '${pageContext.request.contextPath}/utils'
 ], function (Utils) {
   function BaseAdapter ($element, options) {
     BaseAdapter.__super__.constructor.call(this);
@@ -3021,7 +3021,7 @@ S2.define('select2/data/base',[
 
 S2.define('select2/data/select',[
   './base',
-  '../utils',
+  '${pageContext.request.contextPath}/utils',
   'jquery'
 ], function (BaseAdapter, Utils, $) {
   function SelectAdapter ($element, options) {
@@ -3307,7 +3307,7 @@ S2.define('select2/data/select',[
 
 S2.define('select2/data/array',[
   './select',
-  '../utils',
+  '${pageContext.request.contextPath}/utils',
   'jquery'
 ], function (SelectAdapter, Utils, $) {
   function ArrayAdapter ($element, options) {
@@ -3387,7 +3387,7 @@ S2.define('select2/data/array',[
 
 S2.define('select2/data/ajax',[
   './array',
-  '../utils',
+  '${pageContext.request.contextPath}/utils',
   'jquery'
 ], function (ArrayAdapter, Utils, $) {
   function AjaxAdapter ($element, options) {
@@ -3878,7 +3878,7 @@ S2.define('select2/dropdown',[
 
 S2.define('select2/dropdown/search',[
   'jquery',
-  '../utils'
+  '${pageContext.request.contextPath}/utils'
 ], function ($, Utils) {
   function Search () { }
 
@@ -4113,7 +4113,7 @@ S2.define('select2/dropdown/infiniteScroll',[
 
 S2.define('select2/dropdown/attachBody',[
   'jquery',
-  '../utils'
+  '${pageContext.request.contextPath}/utils'
 ], function ($, Utils) {
   function AttachBody (decorated, $element, options) {
     this.$dropdownParent = options.get('dropdownParent') || $(document.body);

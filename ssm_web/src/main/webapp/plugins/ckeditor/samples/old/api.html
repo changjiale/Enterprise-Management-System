@@ -7,7 +7,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 <head>
 	<meta charset="utf-8">
 	<title>API Usage &mdash; CKEditor Sample</title>
-	<script src="../../ckeditor.js"></script>
+	<script src="${pageContext.request.contextPath}/${pageContext.request.contextPath}/ckeditor.js"></script>
 	<link href="sample.css" rel="stylesheet">
 	<script>
 
@@ -148,7 +148,7 @@ function onBlur() {
 			</p>
 		</noscript>
 	</div>
-	<form action="../../../samples/sample_posteddata.php" method="post">
+	<form action="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/samples/sample_posteddata.php" method="post">
 		<textarea cols="100" id="editor1" name="editor1" rows="10">&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;</textarea>
 
 		<script>

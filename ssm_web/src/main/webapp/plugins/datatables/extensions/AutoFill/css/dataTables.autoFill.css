@@ -7,7 +7,7 @@ div.AutoFill_filler {
 	position: absolute;
 	height: 14px;
 	width: 14px;
-	background: url(../images/filler.png) no-repeat center center;
+	background: url(${pageContext.request.contextPath}/images/filler.png) no-repeat center center;
 	z-index: 1002;
 }
 
