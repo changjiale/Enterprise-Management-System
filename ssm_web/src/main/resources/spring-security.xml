@@ -39,20 +39,20 @@
     </security:http>
 
     <!-- 切换成数据库中的用户名和密码 -->
-    <!--<security:authentication-manager>-->
-        <!--<security:authentication-provider user-service-ref="userService">-->
-            <!--&lt;!&ndash; 配置加密的方式&ndash;&gt;-->
-            <!--<security:password-encoder ref="passwordEncoder"/>-->
-        <!--</security:authentication-provider>-->
-    <!--</security:authentication-manager>-->
-    <!--提供了入门的方式，在内存中存入用户名和密码-->
     <security:authentication-manager>
-        <security:authentication-provider>
-            <security:user-service>
-                <security:user name="admin" password="{noop}admin" authorities="ROLE_USER"/>
-            </security:user-service>
+        <security:authentication-provider user-service-ref="userService">
+            <!-- 配置加密的方式-->
+            <security:password-encoder ref="passwordEncoder"/>
         </security:authentication-provider>
     </security:authentication-manager>
+    <!--提供了入门的方式，在内存中存入用户名和密码-->
+    <!--<security:authentication-manager>-->
+        <!--<security:authentication-provider>-->
+            <!--<security:user-service>-->
+                <!--<security:user name="admin" password="{noop}admin" authorities="ROLE_USER"/>-->
+            <!--</security:user-service>-->
+        <!--</security:authentication-provider>-->
+    <!--</security:authentication-manager>-->
 
     <!-- 配置加密类 -->
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
