@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import ssm.domain.UserInfo;
 
+import java.util.List;
+
 public interface IUserDao {
 
     @Select("select * from users where username=#{username}")
@@ -19,4 +21,7 @@ public interface IUserDao {
             @Result(property = "roles",column = "id",javaType = java.util.List.class,many = @Many(select = "ssm.dao.IRoleDao.findRoleByUserId"))
     })
     public UserInfo findByUsername(String username) throws Exception;
+
+    @Select("select * from users")
+    List<UserInfo> findAll() throws Exception;
 }

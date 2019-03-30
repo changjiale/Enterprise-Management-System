@@ -38,6 +38,7 @@
                     <property name="properties">
                         <props>
                             <prop key="helperDialect">oracle</prop>
+                            <!--分页码合理化-->
                             <prop key="reasonable">true</prop>
                         </props>
                     </property>
