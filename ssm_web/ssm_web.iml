@@ -17,6 +17,7 @@
         <fileset id="fileset" name="Spring Mvc" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring-mvc.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring-security.xml</file>
         </fileset>
       </configuration>
     </facet>
