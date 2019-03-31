@@ -23,4 +23,11 @@ public class PermissionController {
         mv.setViewName("permission-list");
         return mv;
     }
+
+    @RequestMapping("save.do")
+    private String save(Permission permission) throws Exception {
+        permissionService.save(permission);
+        return "redirect:findAll.do";
+
+    }
 }

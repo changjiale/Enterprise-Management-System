@@ -1,5 +1,6 @@
 package ssm.dao;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 import ssm.domain.Permission;
@@ -12,4 +13,7 @@ public interface IPermissionDao {
 
     @Select("select * from permission")
     List<Permission> findAll() throws Exception;
+
+    @Insert("insert into permission(permissionName, url) values(#{permissionName}, #{url})")
+    void save(Permission permission) throws Exception;
 }
