@@ -15,7 +15,7 @@ public class PermissionController {
 
     @Autowired
     private IPermissionService permissionService;
-    @RequestMapping("findAll.do")
+    @RequestMapping("/findAll.do")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Permission> permissionList = permissionService.findAll();
@@ -24,7 +24,7 @@ public class PermissionController {
         return mv;
     }
 
-    @RequestMapping("save.do")
+    @RequestMapping("/save.do")
     private String save(Permission permission) throws Exception {
         permissionService.save(permission);
         return "redirect:findAll.do";

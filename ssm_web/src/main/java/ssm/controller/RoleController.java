@@ -18,7 +18,7 @@ public class RoleController {
     @Autowired
     private IRoleService roleService;
 
-    @RequestMapping("findAll.do")
+    @RequestMapping("/findAll.do")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
         List<Role> roleList = roleService.findAll();
@@ -27,14 +27,14 @@ public class RoleController {
         return mv;
     }
 
-    @RequestMapping("save.do")
+    @RequestMapping("/save.do")
     public String save(Role role) throws Exception {
         roleService.save(role);
         return "redirect:findAll.do";
     }
 
     //根据用户查询role，并查询出可以添加的权限
-    @RequestMapping("findRoleByIdAndAllPermission.do")
+    @RequestMapping("/findRoleByIdAndAllPermission.do")
     public ModelAndView findRoleByIdAndAllPermission(@RequestParam(name = "id", required = true) String roleId) throws Exception {
         ModelAndView mv = new ModelAndView();
         //根据roleid查询role
@@ -48,7 +48,7 @@ public class RoleController {
     }
 
     //给角色添加权限
-    @RequestMapping("addPermissionToRole.do")
+    @RequestMapping("/addPermissionToRole.do")
     public String addPermissionToRole(@RequestParam(name = "roleId",required = true) String roleId, @RequestParam(name = "ids",required = true) String[] permissionIds) throws Exception {
         roleService.addPermissionToRole(roleId, permissionIds);
         return "redirect:findAll.do";

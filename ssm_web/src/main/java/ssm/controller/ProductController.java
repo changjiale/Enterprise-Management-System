@@ -25,7 +25,7 @@ public class ProductController {
     }
 
     //查询全部产品
-    @RequestMapping("findAll.do")
+    @RequestMapping("/findAll.do")
     @RolesAllowed("ADMIN")
     public ModelAndView findAll() throws Exception {
         ModelAndView mv = new ModelAndView();
