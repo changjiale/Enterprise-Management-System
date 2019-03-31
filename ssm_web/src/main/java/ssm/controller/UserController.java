@@ -22,7 +22,8 @@ public class UserController {
         ModelAndView mv = new ModelAndView();
         UserInfo userInfo = userService.findById(id);
         mv.addObject("user",userInfo);
-        mv.setViewName("user-show");
+        System.out.println(userInfo);
+        mv.setViewName("user-show1");
         return mv;
     }
 

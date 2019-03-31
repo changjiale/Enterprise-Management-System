@@ -1,9 +1,7 @@
 package ssm.dao;
 
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
 import ssm.domain.Role;
 
 import java.util.List;
@@ -18,4 +16,11 @@ public interface IRoleDao {
             @Result(property = "permissions", column = "id", javaType = java.util.List.class,many = @Many(select = "ssm.dao.IPermissionDao.findPermissionByRoleId"))
     })
     public List<Role> findRoleByUserId(String userId) throws Exception;
+
+    //查询所有角色
+    @Select("select * from role")
+    List<Role> findAll() throws Exception;
+
+    @Insert("insert into role(roleName, roleDesc) values (#{roleName},#{roleDesc} )")
+    void save(Role role) throws Exception;
 }
